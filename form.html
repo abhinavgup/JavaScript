@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validations</title>
+	<script type="text/javascript">
+        
+		function validate(){
+			var username=document.getElementById("user");
+			var password=document.getElementById("pass");
+
+			if(username.value.trim()=="")//using .trim() sothat no spaces are allowed from begining
+			{
+				//alert("blank username");
+				username.style.border="solid 3px red";
+				document.getElementById("lbluser").style.visibility="visible";
+				return false;
+			}
+			else if(password.value.trim()==""){
+				//alert("blank password");
+				password.style.border="solid 3px blue";
+				document.getElementById("lblpass").style.visibility="visible";
+				return false;			
+			}
+
+			else if(password.value.trim().length<5){
+				//alert("password too short");
+				password.style.border="solid 3px pink";
+				document.getElementById("lblpass").innerHTML="PASSWORD too short";
+				document.getElementById("lblpass").style.visibility="visible";
+				return false;			
+			}
+
+			else{
+                 
+                return true;
+			}
+
+		}
+	
+	
+	</script>
+</head>
+<body>
+	<form onsubmit="return validate()" action="message.html">
+		<input id="user" placeholder="username" type="text" required/>
+	    <label id="lbluser" style="color:red; visibility:hidden;">username Invalid</label>
+	    <br><br>
+	    <input id= "pass" placeholder="password" type="password" required />
+	    <label id="lblpass" style="color:blue; visibility:hidden;">password INVALID</label>
+	    <br><br>
+	    <button type="submit">submit</button>
+
+	</form>
+</body>
+</html>
