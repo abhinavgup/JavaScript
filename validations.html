@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regular expressions</title>
+<script type="text/javascript">
+	
+	function validations(){
+
+		var username=document.getElementById("user").value;
+		//regx= new RegExp("E00","i")//another way
+		var regx=/[^a-z]abc/;//to exclude something we will put ^ -carrot sign
+		//var regx=/[0-5]a[6-9][a-z]/;
+		//var regx=/[a-x 0-9]imple/ig;//a-x means range from a to x followed by imple
+		//var regx=/E00/ig;  //regx is object here of inbulit class // i for case insensitive // g for global means as many times e00 comes it will be detected
+		if(regx.test(username))// test will return boolean value
+	    {
+	    	alert("valid username");
+
+	    }
+	    else{
+
+	    	alert("invalid username");
+	    	document.getElementById("lbluser").style.visibilty="visible";
+	    }
+	}
+</script>
+</head>
+<body>
+	<form action="message.html">
+		<input id="user" placeholder="username" type="text" /><br>
+		<label id="lbluser" style="color:red ; visibility: hidden">INVALID USERNAME</label>
+		<br>
+
+		<button onclick="validations()" type="button">Submit</button>
+	</form>
+</body>
+</html>

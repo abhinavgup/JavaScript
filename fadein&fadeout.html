@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fadein and fadeout</title>
+	<script type="text/javascript">
+		var opacity=0;
+		var intervalID=0;
+
+		function hide(){
+			//here coding of animation happens
+			
+			var img=document.getElementById("img1");
+			opacity=Number(window.getComputedStyle(img).getPropertyValue("opacity"));		
+			
+			if(opacity>0){
+				
+				opacity=opacity-0.1;
+				img.style.opacity=opacity;
+				console.log(opacity);
+
+			}
+
+			else{
+
+				clearInterval(intervalID);
+			}
+
+		}
+
+		function fadeOut(){
+   
+			intervalID=setInterval(hide,2000)
+		}
+
+		function show(){
+
+			var img=document.getElementById("img1");
+			opacity=Number(window.getComputedStyle(img).getPropertyValue("opacity"));
+
+			if(opacity<1){
+				opacity=opacity+0.1;
+				img.style.opacity=opacity;
+				console.log(opacity);
+			}
+
+			else{
+
+				clearInterval(intervalID);
+			}
+		}
+
+		function fadeIn(){
+			intervalID=setInterval(show,2000)
+		}
+
+	</script>
+</head>
+<body>
+
+	<button onclick="fadeOut()" id="btnAdd">Fade Out</button>
+	<br>
+	<img style="opacity: 1 ;" id="img1" src="/home/chiranjeev/Desktop/CityMarket_Parking1.jpg" width="250px"/>
+	<br>
+	<button onclick="fadeIn()" id="btnstop">Fade In</button>
+
+</body>
+</html>

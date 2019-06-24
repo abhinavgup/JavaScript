@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>phone & email validation</title>
+	<script type="text/javascript">
+		function email_validate(){
+			var email=document.getElementById("email1");
+			var regx=/^([a-z A-Z 0-9 \. _ -]+)@([a-z A-Z 0-9 - _]+).([a-z]{2,8})(.[a-z]{2,8})?$/;// + shows atleast 1 vlaue i.e dynamic no. of string  used ? to make last part optional (.com or .co.in)
+			if(regx.test(email.value)){
+				document.getElementById("lblemail").innerHTML="valid email id";
+				document.getElementById("lblemail").style.visibility="visible";
+				document.getElementById("lblemail").style.color="green";
+				email.style.border="solid 3px green";
+
+			}
+			else{
+				document.getElementById("lblemail").innerHTML="invalid email id";
+				document.getElementById("lblemail").style.visibility="visible";
+				document.getElementById("lblemail").style.color="blue";
+				email.style.border="solid 3px blue";
+			}
+
+		}
+
+
+		function phone_validate(){
+			var phone=document.getElementById("phone1");
+
+			var regx=/^[7-9]\d{9}$/;//var regx=/[7-9][0-9]{9}/;
+
+			if(regx.test(phone.value)){
+
+				document.getElementById("lblphone").innerHTML="valid phone no.";
+				document.getElementById("lblphone").style.visibility="visible";
+			 	document.getElementById("lblphone").style.color="green";
+			 	phone.style.border="solid 3px green";
+			}
+			else{
+				document.getElementById("lblphone").innerHTML="invalid phone no.";
+				document.getElementById("lblphone").style.visibility="visible";
+			 	document.getElementById("lblphone").style.color="blue";
+			 	phone.style.border="solid 3px blue";
+			
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<form>
+		<input id="phone1" placeholder="mobile no." type="text" required/><br>
+		<label id="lblphone" style="color:red; visibility:hidden">Invalid phone number</label>
+		<br>
+		<button onclick="phone_validate()" type="button" > Submit</button>
+		<br>
+		<input id="email1" placeholder="E-mail" type="text" required/><br>
+		<label id="lblemail" style="color:red; visibility:hidden">Invalid E-mail id</label>
+		<br>
+		<button onclick="email_validate()" type="button">Submit</button>
+	</form>
+
+</body>
+</html>
