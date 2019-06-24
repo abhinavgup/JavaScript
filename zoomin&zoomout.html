@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+	<title>zoomin and zoomout</title>
+	<script type="text/javascript">
+
+		var width=100;
+		var difference =2;
+		var intervalID=0;
+
+		//document.getElementById(img1).style.width=width;
+	
+		function increase(){
+			clearInterval(intervalID);
+			intervalID= setInterval(zoomIn,10);
+
+
+		}
+
+		function decrease(){
+			clearInterval(intervalID);
+			intervalID=setInterval(zoomOut,10);
+		}
+
+		function zoomIn(){
+		 	if (width<200){
+		 		width=width+difference;
+		 		document.getElementById("img1").style.width=width; // setting new width to the image
+		 	}	
+
+		 	else{
+		 		clearInterval(intervalID);
+		 	}
+		}
+
+		function zoomOut(){
+			if (width>100){
+				width=width-difference;
+				document.getElementById("img1").style.width=width;
+			}
+			else{
+				clearInterval(intervalID);
+			}
+		}
+
+	</script>
+</head>
+<body>
+
+	<br>
+	<br>
+	<img onmouseover="increase()" onmouseout="decrease()"  id="img1" src="https://kids.nationalgeographic.com/content/dam/kids/photos/articles/Science/H-P/heart.ngsversion.1396531395268.adapt.1900.1.jpg" width=100/>
+</body>
+</html>
