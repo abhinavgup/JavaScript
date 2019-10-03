@@ -17,12 +17,12 @@ function textboxfunction1(){
 
 function radiofunction1(){
 	
-	var rd1=document.getElementById("rd1");
+	var rd1=document.getElementById("rd1"); // this returns element that has Id attrbute with given value //
     var rd2=document.getElementById("rd2");	
     
     if(rd1.checked==true)
     {
-    	alert("your best friend is :"+rd1.value)
+    	alert("your best friend is :"+rd1.value)   // generates an alert 
 
     }
     else if(rd2.checked==true)
